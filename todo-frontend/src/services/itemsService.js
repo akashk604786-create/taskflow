@@ -11,14 +11,14 @@ export const addItemToServer = async (task, date) => {
 };
 
 export const getItemsFromServer = async () => {
-  const response = await fetch("http://localhost:3006/api/todo");
+  const response = await fetch("https://taskflow-zuq3.onrender.com/api/todo");
   const items = await response.json();
   return items.map(mapServerItemToLocalItem);
 };
 
 export const markItemCompletedOnServer = async (id) => {
   const response = await fetch(
-    `http://localhost:3006/api/todo/${id}/completed`,
+    `https://taskflow-zuq3.onrender.com/api/todo/${id}/completed`,
     {
       method: "PUT",
     }
@@ -28,7 +28,7 @@ export const markItemCompletedOnServer = async (id) => {
 };
 
 export const deleteItemFromServer = async (id) => {
-  await fetch(`http://localhost:3006/api/todo/${id}`, {
+  await fetch(`https://taskflow-zuq3.onrender.com/api/todo/${id}`, {
     method: "DELETE",
   });
   return id;
