@@ -4,6 +4,9 @@ const todoItemsRouter = express.Router();
 
 // Local Module
 const todoItemsController = require("../controllers/todoItemsController");
+const authMiddleware = require("../middleware/authMiddleware");
+
+todoItemsRouter.use(authMiddleware);
 
 todoItemsRouter.get("/", todoItemsController.getTodoItems);
 todoItemsRouter.post("/", todoItemsController.createTodoItem);
